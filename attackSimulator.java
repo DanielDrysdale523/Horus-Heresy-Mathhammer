@@ -162,6 +162,3 @@ public class attackSimulator{
 
 
 }
-
-
-//6*6*6
