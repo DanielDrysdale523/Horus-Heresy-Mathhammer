@@ -1,0 +1,50 @@
+public class characterStats{
+    //This class will represent a given character -
+    // needs a constructor method, a way of assigning damage and storing core stats
+
+    public String name;
+    //The basic stats of the character
+    public int weaponSkill;
+    public int ballisticSkill;
+    public int strength;
+    public int toughness;
+    public int wounds;
+    public int attacks;
+    public int initiative;
+    public int save;
+    public int inv = 7;
+
+    //The mental stats of the character
+    public int leadership;
+    public int willpower;
+    public int cool;
+    public int intelligence;
+
+    //The special rules applied to the character
+    public String specialRules = "";
+
+    public weaponStats weapon;
+    //Constructor method
+    public characterStats(String name, int weaponSkill, int ballisticSkill, int strength, int toughness, int wounds, int attacks, int initiative, int save, int inv){
+        this.name = name;
+        this.weaponSkill = weaponSkill;
+        this.ballisticSkill = ballisticSkill;
+        this.strength = strength;
+        this.toughness = toughness;
+        this.wounds = wounds;
+        this.attacks = attacks;
+        this.initiative = initiative;
+        this.save = save;
+        this.inv = inv;
+    }
+    public void setMentalStats(int leadership, int willpower, int cool, int intelligence){
+        this.leadership = leadership;
+        this.willpower = willpower;
+        this.cool = cool;
+        this.intelligence = intelligence;
+    }
+    public void addSpecialRule(String newSpecialRule){
+        this.specialRules += newSpecialRule + ", ";
+    }
+    
+}
