@@ -5,6 +5,11 @@ public class attackSimulator{
     public characterStats attacker;
     public characterStats defender;
     public weaponStats attackerWeapon;
+    public attackSimulator(characterStats attack, characterStats defend, weaponStats weapon){
+        this.attacker = attack;
+        this.defender = defend;
+        this.attackerWeapon = weapon;
+    }
 
     public Hashtable<Integer, Integer> runIndividualattack(){
         
@@ -13,16 +18,20 @@ public class attackSimulator{
 
         //Need to modify strength via weapon
         int attackerS = attacker.strength;
+        System.out.println("s");
 
         int attackdamage = attacker.weapon.damage;
+        System.out.println("s");
         int xc = 0;
 
         while(rolls[0] <= 6){
+            System.out.println("rolls" + rolls[0] + "rolls" + rolls[1] + "" + rolls[2]);
             //Run through a test for each value, and add 1 to it if it fails, 
             //or move to the next one when it suceeds
             if(checkHit(attacker.weaponSkill, defender.weaponSkill, rolls[0])){
                 //Continue to check wounds
                 if(checkWound(attackerS, defender.toughness, rolls[1])){
+                    System.out.println("wound");
                     //Now, roll a save
                     if(attackerWeapon.ap <= defender.save){
                         //progress to invuln
@@ -67,6 +76,7 @@ public class attackSimulator{
                    
                 }
                 else{
+                    System.out.println("failedWound");
                     rolls[1] = rolls[1] + 1;
                      try{
                         int x = resultsHash.get(0);
@@ -162,3 +172,4 @@ public class attackSimulator{
 
 
 }
+
