@@ -5,12 +5,21 @@ public class attackSimulator{
     public characterStats attacker;
     public characterStats defender;
     public weaponStats attackerWeapon;
+    /**
+     * Constructor for the attackSimulator class
+     * @param attack the characterStats of the attacker
+     * @param defend the characterStats of the defender
+     * @param weapon the weaponStats of the weapon being used
+     */
     public attackSimulator(characterStats attack, characterStats defend, weaponStats weapon){
         this.attacker = attack;
         this.defender = defend;
         this.attackerWeapon = weapon;
     }
-
+    /**
+     * Runs a single attack simulation and returns the results as a Hashtable
+     * @return a Hashtable containing the permutations of damage numbers
+     */
     public Hashtable<Integer, Integer> runIndividualattack(){
         
         //hash table is encoded by resultant damage 
@@ -113,6 +122,13 @@ public class attackSimulator{
         }
         return resultsHash;
     }
+    /**
+     * Checks if an attack hits based on the attacker's weapon skill, the defender's weapon skill, and the roll
+     * @param attackerWS the weapon skill of the attacker
+     * @param defenderWS the weapon skill of the defender
+     * @param roll the roll value to check against
+     * @return true if the attack hits, false otherwise
+     */
 
     public Boolean checkHit(int attackerWS, int defenderWS, int roll){
         //setting max WS
@@ -142,6 +158,13 @@ public class attackSimulator{
         return false;
     }
 
+    /**
+     * Checks if an attack wounds based on the attacker's strength, the defender's toughness, and the roll
+     * @param attackerS the strength of the attacker
+     * @param defenderT the toughness of the defender
+     * @param roll the roll value to check against
+     * @return true if the attack wounds, false otherwise
+     */
     public Boolean checkWound(int attackerS, int defenderT, int roll){
         //setting max WS
         if(attackerS > 10){
