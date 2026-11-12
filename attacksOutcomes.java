@@ -5,6 +5,12 @@ public class attacksOutcomes{
     characterStats attacker;
     characterStats defender;
     weaponStats weapon;
+    /**
+     * Constructor for the attacksOutcomes class
+     * @param attck the characterStats of the attacker
+     * @param defend the characterStats of the defender
+     * @param weapon the weaponStats of the weapon being used
+     */
     public attacksOutcomes(characterStats attck, characterStats defend, weaponStats weapon){
         this.attacker = attck;
         this.defender = defend;
@@ -13,7 +19,10 @@ public class attacksOutcomes{
         this.individualAttack = strikeOutcome.runIndividualattack();
         
     }
-    
+    /**
+     * Calculates the overall damage of several attacks
+     * @return a Hashtable containing the permutations of damage numbers
+     */
      public Hashtable<Integer, BigInteger> calculateOverallDamage(){
         int maxSingleDamageAttack = individualAttack.size();
         System.out.println(individualAttack);
@@ -46,7 +55,12 @@ public class attacksOutcomes{
        
         
     }
-
+    /**
+     * multiplies PGF's
+     * @param primaryPGF the first PGF to multiply
+     * @param secondaryPGF the second PGF to multiply
+     * @return the product of the two PGF's as a PGF
+     */
    public PGF multiplyPGFs(PGF primaryPGF, PGF secondaryPGF){
         int highestValue = (primaryPGF.currentProbabilitiyNumerator.length) + (secondaryPGF.currentProbabilitiyNumerator.length) - 1;
         PGF outputPGF = new PGF(new BigInteger[(highestValue)], (primaryPGF.currentProbabilitiyDemnomerator.multiply(secondaryPGF.currentProbabilitiyDemnomerator)));
